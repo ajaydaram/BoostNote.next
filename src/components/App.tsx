@@ -23,6 +23,7 @@ import ToastList from './Toast'
 import styled from '../lib/styled'
 import { useEffectOnce } from 'react-use'
 import FeatureCheckListPopup from './organisms/FeatureCheckListPopup'
+import StorageNavigator from './organisms/StorageNavigator'
 
 const LoadingText = styled.div`
   margin: 30px;
@@ -94,12 +95,15 @@ const App = () => {
         }}
       >
         {initialized ? (
-          <TwoPaneLayout
-            defaultLeftWidth={generalStatus.sideBarWidth}
-            left={<Navigator />}
-            right={<Router />}
-            onResizeEnd={updateNavWidth}
-          />
+          <>
+            <StorageNavigator />
+            <TwoPaneLayout
+              defaultLeftWidth={generalStatus.sideBarWidth}
+              left={<Navigator />}
+              right={<Router />}
+              onResizeEnd={updateNavWidth}
+            />
+          </>
         ) : (
           <LoadingText>Loading Data...</LoadingText>
         )}

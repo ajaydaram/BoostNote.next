@@ -90,19 +90,12 @@ const Navigator = () => {
     },
     [popup, prompt, createStorage, push]
   )
-  const pathname = usePathnameWithoutNoteId()
   const { toggleClosed } = usePreferences()
 
   return (
     <NavigatorContainer>
       <TopControl onContextMenu={openSideNavContextMenu}>
         <Spacer />
-        <NavigatorButton
-          iconPath={mdiBookPlusMultiple}
-          title='New Storage'
-          active={pathname === '/app/storages'}
-          onClick={() => push('/app/storages')}
-        />
         <NavigatorButton
           iconPath={mdiHammerWrench}
           title='Preferences'
